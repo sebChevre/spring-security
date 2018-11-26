@@ -1,0 +1,68 @@
+dn: dc=devsecops,dc=ch
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: devsecops
+
+# Organizational Units
+dn: ou=groupe,dc=devsecops,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: groupe
+
+dn: ou=personne,dc=devsecops,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: personne
+
+### Personnes
+dn: uid=sce,ou=personne,dc=devsecops,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+memberOf: administrateurs
+memberOf: collaborateurs
+cn: Sébastien Chèvre
+sn: Sébastien
+uid: sce
+userPassword: secret
+
+dn: uid=mmo,ou=personne,dc=devsecops,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+memberOf: administrateurs
+cn: Mickey Mouse
+sn: Mickey
+uid: mmo
+userPassword: secret
+
+dn: uid=ale,ou=personne,dc=devsecops,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+memberOf: collaborateurs
+cn: Albert Einstein
+sn: Albert
+uid: ale
+userPassword: secret
+
+
+### Groupes
+dn: cn=administateurs,ou=groupe,dc=devsecops,dc=ch
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: administateurs
+ou: administateur
+uniqueMember: uid=sce,ou=personne,dc=devsecops,dc=ch
+uniqueMember: uid=mmo,ou=personne,dc=devsecops,dc=ch
+
+dn: cn=collaborateurs,ou=groupe,dc=devsecops,dc=ch
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: collaborateurs
+ou: collaborateur
+uniqueMember: uid=ale,ou=personne,dc=devsecops,dc=ch
